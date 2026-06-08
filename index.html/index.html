@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atari Farms - Building Circular Agricultural Value Chains for Sustainable Growth">
+    <meta name="keywords" content="Atari Farms, Avoglow, Atari Fresh, sustainable agriculture, organic products, Uganda">
+    <title>Atari Farms | Climate-Smart Agribusiness Uganda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>Atari Farms</span>
+                    <small>Climate-Smart Agribusiness</small>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                    <li><a href="#about" onclick="closeMenu()">About</a></li>
+                    <li class="dropdown">
+                        <a href="#brands">Brands</a>
+                        <div class="dropdown-menu">
+                            <a href="#atari-fresh" onclick="closeMenu()">Atari Fresh</a>
+                            <a href="#avoglow" onclick="closeMenu()">Avoglow</a>
+                        </div>
+                    </li>
+                    <li><a href="#products" onclick="closeMenu()">Shop</a></li>
+                    <li><a href="#impact" onclick="closeMenu()">Impact</a></li>
+                    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <button class="nav-icon" onclick="toggleSearch()" title="Search"><i class="fas fa-search"></i></button>
+                    <button class="nav-icon" id="cartIcon" onclick="toggleCart()" title="Shopping Cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </button>
+                    <button class="nav-icon" onclick="toggleUserMenu()" title="Account"><i class="fas fa-user"></i></button>
+                    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <input type="text" id="searchInput" placeholder="Search products..." onkeyup="liveSearch()">
+            <button onclick="performSearch()"><i class="fas fa-search"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Building Circular Agricultural Value Chains</h1>
+                <p class="hero-subtitle">Sustainable growth through innovative farming, fair trade, and community empowerment</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+                    <button class="btn btn-outline">Learn More</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>1500+</h3>
+                        <p>Farmers Connected</p>
+                    </div>
+                    <div class="stat">
+                        <h3>20%</h3>
+                        <p>Capacity Growth</p>
+                    </div>
+                    <div class="stat">
+                        <h3>5+</h3>
+                        <p>Years Operating</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/600x600?text=Sustainable+Farming" alt="Atari Farms Sustainable Agriculture" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Atari Farms</h2>
+            <div class="about-intro">
+                <p>Atari Farms Limited is a Ugandan climate-smart agribusiness focused on reducing post-harvest losses, strengthening market access for smallholder farmers, and transforming agricultural produce into high-value products through circular value addition.</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Our Mission</h3>
+                    <p>Reducing post-harvest losses and strengthening market access for smallholder farmers across Eastern Uganda through climate-smart agribusiness solutions.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Our Approach</h3>
+                    <p>Working with 1500+ smallholder farmers through aggregation, processing, market linkage, innovation, and capacity building.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Circular Economy</h3>
+                    <p>Transforming agricultural by-products into high-value products, reducing waste, and creating sustainable income streams.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Sustainability</h3>
+                    <p>Promoting climate-smart practices, youth participation, women empowerment, and long-term environmental value creation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="challenges">
+        <div class="container">
+            <h2 class="section-title">The Challenge We Address</h2>
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <i class="fas fa-ban"></i>
+                    <h3>Limited Market Access</h3>
+                    <p>Smallholder farmers lack reliable and organized market linkages for their produce.</p>
+                </div>
+                <div class="challenge-card">
+                    <i class="fas fa-trash"></i>
+                    <h3>Post-Harvest Losses</h3>
+                    <p>High waste due to poor handling systems and inadequate storage infrastructure.</p>
+                </div>
+                <div class="challenge-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Low Value Addition</h3>
+                    <p>Limited participation in value-addition activities and processing opportunities.</p>
+                </div>
+                <div class="challenge-card">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Market Information Gap</h3>
+                    <p>Farmers lack access to real-time market information and pricing data.</p>
+                </div>
+                <div class="challenge-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Price Instability</h3>
+                    <p>Volatile and unpredictable produce prices impact farmer incomes negatively.</p>
+                </div>
+                <div class="challenge-card">
+                    <i class="fas fa-users-slash"></i>
+                    <h3>Youth Opportunities</h3>
+                    <p>Limited employment and income generation opportunities for young people in agriculture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands" id="brands">
+        <div class="container">
+            <h2 class="section-title">Our Brands</h2>
+            <div class="brands-grid">
+                <!-- Atari Fresh -->
+                <div class="brand-card" id="atari-fresh">
+                    <div class="brand-header fresh">
+                        <h3>Atari Fresh</h3>
+                        <p class="brand-tagline">Fresh Produce Aggregation & Distribution</p>
+                    </div>
+                    <div class="brand-content">
+                        <h4>Key Produce Categories</h4>
+                        <ul class="produce-list">
+                            <li><i class="fas fa-apple-alt"></i> Fresh Avocados</li>
+                            <li><i class="fas fa-carrot"></i> Vegetables</li>
+                            <li><i class="fas fa-orange"></i> Fruits</li>
+                            <li><i class="fas fa-leaf"></i> Grains & Pulses</li>
+                            <li><i class="fas fa-drumstick-bite"></i> Fresh Beef Supply</li>
+                        </ul>
+                        <h4>Market Segments</h4>
+                        <ul class="market-list">
+                            <li><i class="fas fa-utensils"></i> Hotels & Restaurants</li>
+                            <li><i class="fas fa-store"></i> Retailers & Vendors</li>
+                            <li><i class="fas fa-school"></i> Schools & Institutions</li>
+                            <li><i class="fas fa-hospital"></i> Hospitals</li>
+                            <li><i class="fas fa-warehouse"></i> Wholesale Buyers</li>
+                        </ul>
+                        <button class="btn btn-secondary">Explore Atari Fresh</button>
+                    </div>
+                </div>
+
+                <!-- Avoglow -->
+                <div class="brand-card" id="avoglow">
+                    <div class="brand-header glow">
+                        <h3>Avoglow</h3>
+                        <p class="brand-tagline">Premium Organic Cosmetics & Wellness</p>
+                    </div>
+                    <div class="brand-content">
+                        <h4>Product Categories</h4>
+                        <ul class="product-categories">
+                            <li><i class="fas fa-droplet"></i> Natural Cosmetic Oils</li>
+                            <li><i class="fas fa-spa"></i> Hair Care Products</li>
+                            <li><i class="fas fa-bottle-water"></i> Body Care Solutions</li>
+                            <li><i class="fas fa-leaf"></i> Circular Wellness Products</li>
+                        </ul>
+                        <h4>Key Products</h4>
+                        <ul class="key-products">
+                            <li><i class="fas fa-leaf"></i> Cosmetic-Grade Avocado Oil</li>
+                            <li><i class="fas fa-leaf"></i> Root & Revive Hair Oil</li>
+                            <li><i class="fas fa-leaf"></i> Intensive Hair Butter</li>
+                            <li><i class="fas fa-leaf"></i> AvoChai Wellness Tea</li>
+                            <li><i class="fas fa-leaf"></i> Avocado Seed Powder</li>
+                        </ul>
+                        <button class="btn btn-primary">Shop Avoglow</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            
+            <!-- Filter & Sort -->
+            <div class="filter-section">
+                <div class="filter-group">
+                    <select id="brandFilter" onchange="filterProducts()" class="filter-select">
+                        <option value="">All Products</option>
+                        <option value="atari-fresh">Atari Fresh</option>
+                        <option value="avoglow">Avoglow</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="sortFilter" onchange="sortProducts()" class="filter-select">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Top Rated</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Circularity Section -->
+    <section class="circularity">
+        <div class="container">
+            <h2 class="section-title">Circularity & Sustainability</h2>
+            <p class="section-subtitle">Our circular approach integrates environmental responsibility with economic growth</p>
+            
+            <div class="circularity-grid">
+                <div class="circularity-card">
+                    <div class="circle-number">1</div>
+                    <h3>Reducing Post-Harvest Losses</h3>
+                    <p>We utilize non-export grade and surplus avocados for oil processing instead of allowing them to go to waste.</p>
+                </div>
+                <div class="circularity-card">
+                    <div class="circle-number">2</div>
+                    <h3>Recovering By-products</h3>
+                    <p>Avocado seeds generated during oil processing are repurposed into AvoChai and seed powder applications.</p>
+                </div>
+                <div class="circularity-card">
+                    <div class="circle-number">3</div>
+                    <h3>Expanding Resource Efficiency</h3>
+                    <p>We explore additional uses for avocado pomace, peels, and biomass to further reduce waste.</p>
+                </div>
+                <div class="circularity-card">
+                    <div class="circle-number">4</div>
+                    <h3>Sustainable Production</h3>
+                    <p>Improving energy efficiency and processing systems, including solar drying technologies.</p>
+                </div>
+            </div>
+
+            <div class="circularity-benefits">
+                <h3>Our Circular Model Contributes To:</h3>
+                <div class="benefits-grid">
+                    <div class="benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Reduced agricultural waste</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Increased farmer incomes</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Additional revenue streams</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Local value addition</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Sustainable production practices</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Climate-smart agribusiness development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <h2 class="section-title">Our Impact & Growth</h2>
+            
+            <div class="progress-highlights">
+                <h3>Key Progress Highlights</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <h4>Farmer Onboarding</h4>
+                        <div class="progress-value">+15%</div>
+                        <p>Increased year-on-year</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Production Capacity</h4>
+                        <div class="progress-value">+20%</div>
+                        <p>Significant expansion</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Packaging Costs</h4>
+                        <div class="progress-value">-25%</div>
+                        <p>Reduced through bulk procurement</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Product Lines</h4>
+                        <div class="progress-value">Expanded</div>
+                        <p>Hair and body care specialization</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="community-impact">
+                <h3>Community Impact</h3>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Market Access</h4>
+                        <p>Increased market access for smallholder farmers</p>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-female"></i>
+                        <h4>Women & Youth</h4>
+                        <p>Youth and women participation in agribusiness</p>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-briefcase"></i>
+                        <h4>Employment</h4>
+                        <p>Job creation and local employment opportunities</p>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Waste Reduction</h4>
+                        <p>Reduction of post-harvest losses</p>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Income Growth</h4>
+                        <p>Improved farmer incomes through value addition</p>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-earth-africa"></i>
+                        <h4>Sustainability</h4>
+                        <p>Promotion of circular and sustainable practices</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Farmer & Partner Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Atari Farms changed my farming life completely. Fair prices, reliable market, and genuine support for my family."</p>
+                    <h4>Samuel Kasule</h4>
+                    <p class="role">Avocado Farmer, Bugisu Region</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Through Atari Farms, I've built a sustainable income and trained other young farmers in my community."</p>
+                    <h4>Grace Namutebi</h4>
+                    <p class="role">Youth Agripreneur & Trainer</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Quality products, fair trade practices, and genuine care for farmers. Excellent partner for our business."</p>
+                    <h4>Hotel Manager</h4>
+                    <p class="role">Premium Hospitality Partner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Join Our Community</h2>
+                <p>Get updates on sustainable farming, new products, and farmer success stories</p>
+                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Headquarters</h3>
+                        <p>P.O. Box 310658 Marale<br>Bukasakya Ward, Mbale City<br>Eastern Uganda</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>+256 759 697 167</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>atarifarms@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <h3>Hours</h3>
+                        <p>Monday - Friday: 9AM - 5PM EAT<br>Saturday: 10AM - 3PM EAT</p>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="submitContactForm(event)">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <select required>
+                        <option value="">Select Subject</option>
+                        <option value="inquiry">Product Inquiry</option>
+                        <option value="partnership">Partnership Opportunity</option>
+                        <option value="support">Customer Support</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Atari Farms</h3>
+                    <p>Building resilient and inclusive agricultural value chains for sustainable growth through innovation, circularity, and farmer inclusion.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#brands">Our Brands</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#impact">Our Impact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Atari Fresh</a></li>
+                        <li><a href="#">Avoglow</a></li>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Atari Farms Limited. Building sustainable agricultural value chains. All rights reserved.</p>
+                <p>Tagline: <em>Sexy Farming - Sustainable Innovation for Tomorrow</em></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <button class="close-btn" onclick="closeCart()" aria-label="Close Cart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">UGX 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span id="shipping">UGX 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax:</span>
+                    <span id="tax">UGX 0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">UGX 0</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-full" onclick="checkout()">Proceed to Checkout</button>
+            <button class="btn btn-secondary btn-full" onclick="closeCart()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeProductModal()" aria-label="Close Product Details">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Product Image">
+                    <span class="product-badge" id="modalBadge"></span>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-rating">
+                        <div class="stars" id="modalRating"></div>
+                        <span id="modalReviews"></span>
+                    </div>
+                    <div class="modal-price">
+                        <h3 id="modalPrice"></h3>
+                        <p id="modalOriginalPrice" class="original-price"></p>
+                    </div>
+                    <p id="modalDescription" class="product-description"></p>
+                    <div class="modal-details">
+                        <h4>Key Features</h4>
+                        <ul id="modalFeatures"></ul>
+                    </div>
+                    <div class="quantity-selector">
+                        <button onclick="decreaseQuantity()"><i class="fas fa-minus"></i></button>
+                        <input type="number" id="quantityInput" value="1" min="1" readonly>
+                        <button onclick="increaseQuantity()"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="addToCart()">Add to Cart</button>
+                    <button class="btn btn-secondary btn-full" onclick="addToWishlist()">
+                        <i class="far fa-heart"></i> Save for Later
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
