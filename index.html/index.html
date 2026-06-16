@@ -3,603 +3,2224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Atari Farms - Building Circular Agricultural Value Chains for Sustainable Growth">
-    <meta name="keywords" content="Atari Farms, Avoglow, Atari Fresh, sustainable agriculture, organic products, Uganda">
-    <title>Atari Farms | Climate-Smart Agribusiness Uganda</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>AVOGLOW | Luxury Rooted in Nature</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #2D5A3D;
+            --light-green: #4A7C59;
+            --accent-gold: #D4AF37;
+            --cream: #F9F7F2;
+            --white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-gray: #666666;
+            --border: #E5E5E5;
+            --shadow: rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-icon:hover {
+            color: var(--primary-green);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-gold);
+            color: var(--white);
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(45,90,61,0.8), rgba(74,124,89,0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f9f7f2" width="1200" height="800"/><path fill="%232d5a3d" opacity="0.1" d="M0 400c200-50 400-50 600 0s400 50 600 0v400H0z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #B8941F;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-green);
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Featured Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent-gold);
+            color: var(--white);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .product-rating {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-small {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid var(--primary-green);
+            background: transparent;
+            color: var(--primary-green);
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-small:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-small.primary {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-small.primary:hover {
+            background: var(--light-green);
+        }
+
+        /* Circular Story */
+        .circular-section {
+            background: var(--white);
+            margin: 4rem auto;
+            border-radius: 20px;
+            padding: 4rem;
+            box-shadow: 0 5px 30px var(--shadow);
+        }
+
+        .circular-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .flow-step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .flow-step:last-child::after {
+            display: none;
+        }
+
+        .flow-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: var(--primary-green);
+        }
+
+        .flow-title {
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Impact Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 2.5rem;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlide 0.3s ease;
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: var(--cream);
+            color: var(--text-dark);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-full:hover {
+            background: var(--light-green);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-gray);
+        }
+
+        .form-footer a {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .social-login {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .social-divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .social-divider::before,
+        .social-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            margin: 0 1rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-btn:hover {
+            background: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        /* Product Detail Modal */
+        .product-detail-modal .modal-content {
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .product-gallery {
+            background: var(--cream);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: var(--primary-green);
+        }
+
+        .product-details {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .product-tabs {
+            margin-top: 2rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-gray);
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary-green);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-green);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .benefit-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .benefit-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .benefit-list li::before {
+            content: '√';
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        .ingredients-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .ingredient-tag {
+            background: var(--cream);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-green);
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: var(--white);
+            box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+            z-index: 2001;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            background: var(--cream);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .qty-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--border);
+            background: none;
+            cursor: pointer;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-item {
+            color: #ff4444;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            background: var(--cream);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: var(--light-green);
+        }
+
+        /* Admin Dashboard */
+        .admin-dashboard {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--cream);
+            z-index: 1500;
+            overflow-y: auto;
+        }
+
+        .admin-dashboard.active {
+            display: block;
+        }
+
+        .admin-header {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .admin-nav a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .admin-nav a:hover,
+        .admin-nav a.active {
+            opacity: 1;
+            font-weight: 600;
+        }
+
+        .admin-content {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .dashboard-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .dashboard-card h3 {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dashboard-card .value {
+            font-size: 2rem;
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        .admin-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .admin-section h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table th {
+            background: var(--cream);
+            font-weight: 600;
+            color: var(--text-gray);
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .action-btn {
+            padding: 0.4rem 0.8rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        .action-btn.edit {
+            background: var(--accent-gold);
+            color: var(--white);
+        }
+
+        .action-btn.delete {
+            background: #ff4444;
+            color: var(--white);
+        }
+
+        /* Shop Page Layout */
+        .shop-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .filters {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .filter-group {
+            margin-bottom: 2rem;
+        }
+
+        .filter-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .filter-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-green);
+        }
+
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--white);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .circular-flow {
+                flex-direction: column;
+            }
+
+            .flow-step::after {
+                display: none;
+            }
+
+            .shop-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                width: 80%;
+                height: calc(100vh - 80px);
+                z-index: 999;
+                transition: left 0.3s;
+            }
+
+            .filters.active {
+                left: 0;
+            }
+
+            .product-detail-modal .modal-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            .admin-nav {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-gold);
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+
+    <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <i class="fas fa-leaf"></i>
-                    <span>Atari Farms</span>
-                    <small>Climate-Smart Agribusiness</small>
-                </div>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" onclick="closeMenu()">Home</a></li>
-                    <li><a href="#about" onclick="closeMenu()">About</a></li>
-                    <li class="dropdown">
-                        <a href="#brands">Brands</a>
-                        <div class="dropdown-menu">
-                            <a href="#atari-fresh" onclick="closeMenu()">Atari Fresh</a>
-                            <a href="#avoglow" onclick="closeMenu()">Avoglow</a>
-                        </div>
-                    </li>
-                    <li><a href="#products" onclick="closeMenu()">Shop</a></li>
-                    <li><a href="#impact" onclick="closeMenu()">Impact</a></li>
-                    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-                </ul>
-                <div class="nav-icons">
-                    <button class="nav-icon" onclick="toggleSearch()" title="Search"><i class="fas fa-search"></i></button>
-                    <button class="nav-icon" id="cartIcon" onclick="toggleCart()" title="Shopping Cart">
-                        <i class="fas fa-shopping-bag"></i>
-                        <span class="badge" id="cartCount">0</span>
-                    </button>
-                    <button class="nav-icon" onclick="toggleUserMenu()" title="Account"><i class="fas fa-user"></i></button>
-                    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">AVOGLOW</a>
+            
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('shop')">Shop</a></li>
+                <li><a href="#" onclick="showPage('story')">Our Story</a></li>
+                <li><a href="#" onclick="showPage('circularity')">Circularity</a></li>
+                <li><a href="#" onclick="showPage('impact')">Impact</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <i class="fas fa-search nav-icon"></i>
+                <i class="fas fa-user nav-icon" onclick="openModal('customerLogin')"></i>
+                <i class="fas fa-shopping-cart nav-icon" onclick="toggleCart()">
+                    <span class="cart-count" id="cartCount">0</span>
+                </i>
+                <i class="fas fa-lock nav-icon" onclick="openModal('adminLogin')" title="Admin"></i>
+                <i class="fas fa-bars mobile-menu" onclick="toggleMobileMenu()"></i>
             </div>
-        </div>
-        <!-- Search Bar -->
-        <div class="search-bar" id="searchBar">
-            <input type="text" id="searchInput" placeholder="Search products..." onkeyup="liveSearch()">
-            <button onclick="performSearch()"><i class="fas fa-search"></i></button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Building Circular Agricultural Value Chains</h1>
-                <p class="hero-subtitle">Sustainable growth through innovative farming, fair trade, and community empowerment</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
-                    <button class="btn btn-outline">Learn More</button>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <h3>1500+</h3>
-                        <p>Farmers Connected</p>
-                    </div>
-                    <div class="stat">
-                        <h3>20%</h3>
-                        <p>Capacity Growth</p>
-                    </div>
-                    <div class="stat">
-                        <h3>5+</h3>
-                        <p>Years Operating</p>
-                    </div>
+    <!-- Home Page -->
+    <div id="home" class="page-section active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Luxury Rooted in Nature</h1>
+                <p>Premium avocado-based hair care, skincare, and wellness products powered by sustainable African agriculture.</p>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary" onclick="showPage('shop')">Shop Collection</a>
+                    <a href="#" class="btn btn-secondary" onclick="showPage('story')">Learn Our Story</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="https://via.placeholder.com/600x600?text=Sustainable+Farming" alt="Atari Farms Sustainable Agriculture" loading="lazy">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Atari Farms</h2>
-            <div class="about-intro">
-                <p>Atari Farms Limited is a Ugandan climate-smart agribusiness focused on reducing post-harvest losses, strengthening market access for smallholder farmers, and transforming agricultural produce into high-value products through circular value addition.</p>
+        <!-- Featured Products -->
+        <section id="featured">
+            <h2 class="section-title">Best Sellers</h2>
+            <p class="section-subtitle">Discover our most loved avocado-powered essentials</p>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products injected via JS -->
             </div>
+        </section>
+
+        <!-- Circular Story Preview -->
+        <section class="circular-section">
+            <h2 class="section-title">Our Circular Journey</h2>
+            <p class="section-subtitle">From farm to wellness, every step matters</p>
+            <div class="circular-flow">
+                <div class="flow-step">
+                    <div class="flow-icon"><i class="fas fa-seedling"></i></div>
+                    <div class="flow-title">Farmer Cultivation</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="flow-title">Harvest</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon"><i class="fas fa-oil-can"></i></div>
+                    <div class="flow-title">Oil Production</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon"><i class="fas fa-recycle"></i></div>
+                    <div class="flow-title">Seed Recovery</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon"><i class="fas fa-mug-hot"></i></div>
+                    <div class="flow-title">AvoChai</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon"><i class="fas fa-coins"></i></div>
+                    <div class="flow-title">Additional Income</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn btn-primary" onclick="showPage('circularity')">Explore Our Circular Impact</button>
+            </div>
+        </section>
+
+        <!-- Impact Stats -->
+        <section>
+            <h2 class="section-title">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Farmers Supported</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Products Sold</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">10T+</span>
+                    <span class="stat-label">Waste Recycled</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">Communities Impacted</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section style="background: var(--white); border-radius: 20px; margin: 4rem auto; padding: 4rem;">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="products-grid">
+                <div class="product-card" style="padding: 2rem;">
+                    <div style="color: var(--accent-gold); margin-bottom: 1rem;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 1rem;">"The Root & Revive elixir transformed my hair texture completely. My edges are growing back!"</p>
+                    <strong>- Sarah M.</strong>
+                </div>
+                <div class="product-card" style="padding: 2rem;">
+                    <div style="color: var(--accent-gold); margin-bottom: 1rem;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 1rem;">"AvoChai is my new morning ritual. Love that it's caffeine-free but still energizing."</p>
+                    <strong>- David K.</strong>
+                </div>
+                <div class="product-card" style="padding: 2rem;">
+                    <div style="color: var(--accent-gold); margin-bottom: 1rem;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 1rem;">"Finally, a hair butter that doesn't leave residue. Perfect for my 4C hair."</p>
+                    <strong>- Grace N.</strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Shop Page -->
+    <div id="shop" class="page-section">
+        <section>
+            <h1 class="section-title">Shop All Products</h1>
+            <div class="shop-layout">
+                <aside class="filters" id="filters">
+                    <div class="filter-group">
+                        <div class="filter-title">Category</div>
+                        <label class="filter-option">
+                            <input type="checkbox" value="oil" onchange="filterProducts()"> Hair Oils
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="butter" onchange="filterProducts()"> Hair Butter
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="wellness" onchange="filterProducts()"> Wellness
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="bundle" onchange="filterProducts()"> Bundles
+                        </label>
+                    </div>
+                    <div class="filter-group">
+                        <div class="filter-title">Price Range</div>
+                        <label class="filter-option">
+                            <input type="checkbox" value="0-20000" onchange="filterProducts()"> Under UGX 20,000
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="20000-50000" onchange="filterProducts()"> UGX 20,000 - 50,000
+                        </label>
+                    </div>
+                </aside>
+
+                <div>
+                    <div class="shop-header">
+                        <span id="productCount">7 Products</span>
+                        <select class="sort-select" onchange="sortProducts(this.value)">
+                            <option value="default">Sort by: Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+                    <div class="products-grid" id="shopProducts">
+                        <!-- All products injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Our Story Page -->
+    <div id="story" class="page-section">
+        <section>
+            <h1 class="section-title">From African Farms to Global Wellness</h1>
+            <div style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-gray);">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    Avoglow was born from a simple yet powerful idea: that the most luxurious beauty solutions can be found in nature, and that beauty should empower communities.
+                </p>
+                <p style="margin-bottom: 2rem;">
+                    Founded in partnership with Atari Farms, we work directly with over 500 avocado farmers across East Africa, ensuring fair wages and sustainable farming practices. Every bottle of Avoglow oil tells a story of circular innovation—transforming avocado seeds, typically discarded as waste, into our signature AvoChai wellness tea.
+                </p>
+                <h3 style="color: var(--primary-green); margin: 2rem 0 1rem;">Our Mission</h3>
+                <p>To create premium, natural beauty and wellness products while building a circular economy that empowers African farming communities and reduces agricultural waste.</p>
+                
+                <h3 style="color: var(--primary-green); margin: 2rem 0 1rem;">Our Vision</h3>
+                <p>To become Africa's leading sustainable beauty brand, proving that luxury and ethics can coexist beautifully.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Circularity Page -->
+    <div id="circularity" class="page-section">
+        <section>
+            <h1 class="section-title">The Circular Economy</h1>
+            <p class="section-subtitle">Nothing goes to waste in the Avoglow ecosystem</p>
             
-            <div class="about-grid">
-                <div class="about-card">
-                    <i class="fas fa-seedling"></i>
-                    <h3>Our Mission</h3>
-                    <p>Reducing post-harvest losses and strengthening market access for smallholder farmers across Eastern Uganda through climate-smart agribusiness solutions.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Our Approach</h3>
-                    <p>Working with 1500+ smallholder farmers through aggregation, processing, market linkage, innovation, and capacity building.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-recycle"></i>
-                    <h3>Circular Economy</h3>
-                    <p>Transforming agricultural by-products into high-value products, reducing waste, and creating sustainable income streams.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Sustainability</h3>
-                    <p>Promoting climate-smart practices, youth participation, women empowerment, and long-term environmental value creation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Challenges Section -->
-    <section class="challenges">
-        <div class="container">
-            <h2 class="section-title">The Challenge We Address</h2>
-            <div class="challenges-grid">
-                <div class="challenge-card">
-                    <i class="fas fa-ban"></i>
-                    <h3>Limited Market Access</h3>
-                    <p>Smallholder farmers lack reliable and organized market linkages for their produce.</p>
-                </div>
-                <div class="challenge-card">
-                    <i class="fas fa-trash"></i>
-                    <h3>Post-Harvest Losses</h3>
-                    <p>High waste due to poor handling systems and inadequate storage infrastructure.</p>
-                </div>
-                <div class="challenge-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Low Value Addition</h3>
-                    <p>Limited participation in value-addition activities and processing opportunities.</p>
-                </div>
-                <div class="challenge-card">
-                    <i class="fas fa-info-circle"></i>
-                    <h3>Market Information Gap</h3>
-                    <p>Farmers lack access to real-time market information and pricing data.</p>
-                </div>
-                <div class="challenge-card">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <h3>Price Instability</h3>
-                    <p>Volatile and unpredictable produce prices impact farmer incomes negatively.</p>
-                </div>
-                <div class="challenge-card">
-                    <i class="fas fa-users-slash"></i>
-                    <h3>Youth Opportunities</h3>
-                    <p>Limited employment and income generation opportunities for young people in agriculture.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Brands Section -->
-    <section class="brands" id="brands">
-        <div class="container">
-            <h2 class="section-title">Our Brands</h2>
-            <div class="brands-grid">
-                <!-- Atari Fresh -->
-                <div class="brand-card" id="atari-fresh">
-                    <div class="brand-header fresh">
-                        <h3>Atari Fresh</h3>
-                        <p class="brand-tagline">Fresh Produce Aggregation & Distribution</p>
+            <div style="background: var(--white); padding: 3rem; border-radius: 20px; margin-top: 2rem;">
+                <div class="circular-flow" style="flex-direction: column; gap: 3rem;">
+                    <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                        <div class="flow-icon" style="width: 100px; height: 100px; font-size: 2.5rem;"><i class="fas fa-seedling"></i></div>
+                        <div>
+                            <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">1. Farmer Cultivation</h3>
+                            <p style="color: var(--text-gray);">Local farmers grow avocados using sustainable agricultural practices, receiving fair trade prices.</p>
+                        </div>
                     </div>
-                    <div class="brand-content">
-                        <h4>Key Produce Categories</h4>
-                        <ul class="produce-list">
-                            <li><i class="fas fa-apple-alt"></i> Fresh Avocados</li>
-                            <li><i class="fas fa-carrot"></i> Vegetables</li>
-                            <li><i class="fas fa-orange"></i> Fruits</li>
-                            <li><i class="fas fa-leaf"></i> Grains & Pulses</li>
-                            <li><i class="fas fa-drumstick-bite"></i> Fresh Beef Supply</li>
-                        </ul>
-                        <h4>Market Segments</h4>
-                        <ul class="market-list">
-                            <li><i class="fas fa-utensils"></i> Hotels & Restaurants</li>
-                            <li><i class="fas fa-store"></i> Retailers & Vendors</li>
-                            <li><i class="fas fa-school"></i> Schools & Institutions</li>
-                            <li><i class="fas fa-hospital"></i> Hospitals</li>
-                            <li><i class="fas fa-warehouse"></i> Wholesale Buyers</li>
-                        </ul>
-                        <button class="btn btn-secondary">Explore Atari Fresh</button>
+                    
+                    <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                        <div class="flow-icon" style="width: 100px; height: 100px; font-size: 2.5rem;"><i class="fas fa-oil-can"></i></div>
+                        <div>
+                            <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">2. Cold-Press Extraction</h3>
+                            <p style="color: var(--text-gray);">Avocados are cold-pressed to extract pure, nutrient-rich oil for our beauty products.</p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Avoglow -->
-                <div class="brand-card" id="avoglow">
-                    <div class="brand-header glow">
-                        <h3>Avoglow</h3>
-                        <p class="brand-tagline">Premium Organic Cosmetics & Wellness</p>
+                    <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                        <div class="flow-icon" style="width: 100px; height: 100px; font-size: 2.5rem;"><i class="fas fa-recycle"></i></div>
+                        <div>
+                            <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">3. Seed Recovery</h3>
+                            <p style="color: var(--text-gray);">Instead of discarding seeds, we collect and dry them for our wellness line.</p>
+                        </div>
                     </div>
-                    <div class="brand-content">
-                        <h4>Product Categories</h4>
-                        <ul class="product-categories">
-                            <li><i class="fas fa-droplet"></i> Natural Cosmetic Oils</li>
-                            <li><i class="fas fa-spa"></i> Hair Care Products</li>
-                            <li><i class="fas fa-bottle-water"></i> Body Care Solutions</li>
-                            <li><i class="fas fa-leaf"></i> Circular Wellness Products</li>
-                        </ul>
-                        <h4>Key Products</h4>
-                        <ul class="key-products">
-                            <li><i class="fas fa-leaf"></i> Cosmetic-Grade Avocado Oil</li>
-                            <li><i class="fas fa-leaf"></i> Root & Revive Hair Oil</li>
-                            <li><i class="fas fa-leaf"></i> Intensive Hair Butter</li>
-                            <li><i class="fas fa-leaf"></i> AvoChai Wellness Tea</li>
-                            <li><i class="fas fa-leaf"></i> Avocado Seed Powder</li>
-                        </ul>
-                        <button class="btn btn-primary">Shop Avoglow</button>
+
+                    <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                        <div class="flow-icon" style="width: 100px; height: 100px; font-size: 2.5rem;"><i class="fas fa-mug-hot"></i></div>
+                        <div>
+                            <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">4. AvoChai Creation</h3>
+                            <p style="color: var(--text-gray);">Seeds are roasted, ground, and blended with spices to create our signature caffeine-free chai.</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                        <div class="flow-icon" style="width: 100px; height: 100px; font-size: 2.5rem;"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div>
+                            <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">5. Additional Income</h3>
+                            <p style="color: var(--text-gray);">Farmers earn extra revenue from seed sales, increasing their income by 30%.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Products Section -->
-    <section class="products" id="products">
-        <div class="container">
-            <h2 class="section-title">Our Products</h2>
-            
-            <!-- Filter & Sort -->
-            <div class="filter-section">
-                <div class="filter-group">
-                    <select id="brandFilter" onchange="filterProducts()" class="filter-select">
-                        <option value="">All Products</option>
-                        <option value="atari-fresh">Atari Fresh</option>
-                        <option value="avoglow">Avoglow</option>
-                    </select>
+    <!-- Impact Page -->
+    <div id="impact" class="page-section">
+        <section>
+            <h1 class="section-title">Creating Sustainable Change</h1>
+            <div class="stats-grid" style="margin-bottom: 4rem;">
+                <div class="stat-card">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Farmers Supported</span>
                 </div>
-                <div class="filter-group">
-                    <select id="sortFilter" onchange="sortProducts()" class="filter-select">
-                        <option value="featured">Featured</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="rating">Top Rated</option>
-                        <option value="newest">Newest</option>
-                    </select>
+                <div class="stat-card">
+                    <span class="stat-number">1,200</span>
+                    <span class="stat-label">Jobs Created</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15T</span>
+                    <span class="stat-label">Waste Reduced</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">65%</span>
+                    <span class="stat-label">Women Empowered</span>
                 </div>
             </div>
 
-            <!-- Products Grid -->
-            <div class="products-grid" id="productsGrid"></div>
-        </div>
-    </section>
-
-    <!-- Circularity Section -->
-    <section class="circularity">
-        <div class="container">
-            <h2 class="section-title">Circularity & Sustainability</h2>
-            <p class="section-subtitle">Our circular approach integrates environmental responsibility with economic growth</p>
-            
-            <div class="circularity-grid">
-                <div class="circularity-card">
-                    <div class="circle-number">1</div>
-                    <h3>Reducing Post-Harvest Losses</h3>
-                    <p>We utilize non-export grade and surplus avocados for oil processing instead of allowing them to go to waste.</p>
-                </div>
-                <div class="circularity-card">
-                    <div class="circle-number">2</div>
-                    <h3>Recovering By-products</h3>
-                    <p>Avocado seeds generated during oil processing are repurposed into AvoChai and seed powder applications.</p>
-                </div>
-                <div class="circularity-card">
-                    <div class="circle-number">3</div>
-                    <h3>Expanding Resource Efficiency</h3>
-                    <p>We explore additional uses for avocado pomace, peels, and biomass to further reduce waste.</p>
-                </div>
-                <div class="circularity-card">
-                    <div class="circle-number">4</div>
-                    <h3>Sustainable Production</h3>
-                    <p>Improving energy efficiency and processing systems, including solar drying technologies.</p>
-                </div>
+            <div style="background: var(--white); padding: 3rem; border-radius: 20px;">
+                <h3 style="color: var(--primary-green); margin-bottom: 1.5rem;">Community Development</h3>
+                <p style="color: var(--text-gray); line-height: 1.8;">
+                    Beyond fair trade pricing, Avoglow invests in community infrastructure including clean water projects, educational scholarships for farmers' children, and healthcare initiatives. Our circular model ensures that every purchase contributes to a sustainable future for East African farming communities.
+                </p>
             </div>
+        </section>
+    </div>
 
-            <div class="circularity-benefits">
-                <h3>Our Circular Model Contributes To:</h3>
-                <div class="benefits-grid">
-                    <div class="benefit">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Reduced agricultural waste</span>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Increased farmer incomes</span>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Additional revenue streams</span>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Local value addition</span>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Sustainable production practices</span>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Climate-smart agribusiness development</span>
+    <!-- Contact Page -->
+    <div id="contact" class="page-section">
+        <section>
+            <h1 class="section-title">Get in Touch</h1>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto;">
+                <div>
+                    <h3 style="color: var(--primary-green); margin-bottom: 1.5rem;">Contact Information</h3>
+                    <p style="margin-bottom: 1rem;"><i class="fas fa-phone" style="color: var(--primary-green); margin-right: 1rem;"></i> +256 700 000 000</p>
+                    <p style="margin-bottom: 1rem;"><i class="fas fa-envelope" style="color: var(--primary-green); margin-right: 1rem;"></i> hello@avoglow.com</p>
+                    <p style="margin-bottom: 1rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-green); margin-right: 1rem;"></i> Kampala, Uganda</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 1rem;">Follow Us</h4>
+                        <div class="social-links" style="justify-content: flex-start;">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-tiktok"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Section -->
-    <section class="impact" id="impact">
-        <div class="container">
-            <h2 class="section-title">Our Impact & Growth</h2>
-            
-            <div class="progress-highlights">
-                <h3>Key Progress Highlights</h3>
-                <div class="highlights-grid">
-                    <div class="highlight-card">
-                        <h4>Farmer Onboarding</h4>
-                        <div class="progress-value">+15%</div>
-                        <p>Increased year-on-year</p>
+                
+                <form onsubmit="event.preventDefault(); alert('Message sent!');">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" required>
                     </div>
-                    <div class="highlight-card">
-                        <h4>Production Capacity</h4>
-                        <div class="progress-value">+20%</div>
-                        <p>Significant expansion</p>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required>
                     </div>
-                    <div class="highlight-card">
-                        <h4>Packaging Costs</h4>
-                        <div class="progress-value">-25%</div>
-                        <p>Reduced through bulk procurement</p>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="4" required></textarea>
                     </div>
-                    <div class="highlight-card">
-                        <h4>Product Lines</h4>
-                        <div class="progress-value">Expanded</div>
-                        <p>Hair and body care specialization</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="community-impact">
-                <h3>Community Impact</h3>
-                <div class="impact-grid">
-                    <div class="impact-item">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Market Access</h4>
-                        <p>Increased market access for smallholder farmers</p>
-                    </div>
-                    <div class="impact-item">
-                        <i class="fas fa-female"></i>
-                        <h4>Women & Youth</h4>
-                        <p>Youth and women participation in agribusiness</p>
-                    </div>
-                    <div class="impact-item">
-                        <i class="fas fa-briefcase"></i>
-                        <h4>Employment</h4>
-                        <p>Job creation and local employment opportunities</p>
-                    </div>
-                    <div class="impact-item">
-                        <i class="fas fa-leaf"></i>
-                        <h4>Waste Reduction</h4>
-                        <p>Reduction of post-harvest losses</p>
-                    </div>
-                    <div class="impact-item">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <h4>Income Growth</h4>
-                        <p>Improved farmer incomes through value addition</p>
-                    </div>
-                    <div class="impact-item">
-                        <i class="fas fa-earth-africa"></i>
-                        <h4>Sustainability</h4>
-                        <p>Promotion of circular and sustainable practices</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Farmer & Partner Stories</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Atari Farms changed my farming life completely. Fair prices, reliable market, and genuine support for my family."</p>
-                    <h4>Samuel Kasule</h4>
-                    <p class="role">Avocado Farmer, Bugisu Region</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Through Atari Farms, I've built a sustainable income and trained other young farmers in my community."</p>
-                    <h4>Grace Namutebi</h4>
-                    <p class="role">Youth Agripreneur & Trainer</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Quality products, fair trade practices, and genuine care for farmers. Excellent partner for our business."</p>
-                    <h4>Hotel Manager</h4>
-                    <p class="role">Premium Hospitality Partner</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>Join Our Community</h2>
-                <p>Get updates on sustainable farming, new products, and farmer success stories</p>
-                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                    <button type="submit" class="btn-full">Send Message</button>
                 </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Headquarters</h3>
-                        <p>P.O. Box 310658 Marale<br>Bukasakya Ward, Mbale City<br>Eastern Uganda</p>
+    <!-- Customer Login Modal -->
+    <div id="customerLogin" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Welcome Back</h2>
+                <button class="close-modal" onclick="closeModal('customerLogin')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="handleCustomerLogin(event)">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" required placeholder="your@email.com">
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <h3>Phone</h3>
-                        <p>+256 759 697 167</p>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" required placeholder="••••••••">
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>atarifarms@gmail.com</p>
+                    <div style="text-align: right; margin-bottom: 1.5rem;">
+                        <a href="#" style="color: var(--primary-green); font-size: 0.9rem;">Forgot Password?</a>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <h3>Hours</h3>
-                        <p>Monday - Friday: 9AM - 5PM EAT<br>Saturday: 10AM - 3PM EAT</p>
-                    </div>
-                </div>
-                <form class="contact-form" onsubmit="submitContactForm(event)">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <select required>
-                        <option value="">Select Subject</option>
-                        <option value="inquiry">Product Inquiry</option>
-                        <option value="partnership">Partnership Opportunity</option>
-                        <option value="support">Customer Support</option>
-                        <option value="other">Other</option>
-                    </select>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn-full">Login</button>
                 </form>
+                
+                <div class="social-divider">or continue with</div>
+                
+                <div class="social-buttons">
+                    <button class="social-btn"><i class="fab fa-google"></i></button>
+                    <button class="social-btn"><i class="fab fa-facebook-f"></i></button>
+                </div>
+                
+                <div class="form-footer">
+                    Don't have an account? <a onclick="showSignup()">Sign Up</a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Atari Farms</h3>
-                    <p>Building resilient and inclusive agricultural value chains for sustainable growth through innovation, circularity, and farmer inclusion.</p>
-                    <div class="social-links">
-                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <!-- Admin Login Modal -->
+    <div id="adminLogin" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2 class="modal-title">Admin Access</h2>
+                <button class="close-modal" onclick="closeModal('adminLogin')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="handleAdminLogin(event)">
+                    <div class="form-group">
+                        <label>Admin Email</label>
+                        <input type="email" required placeholder="admin@avoglow.com">
                     </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#brands">Our Brands</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#impact">Our Impact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Shop</h4>
-                    <ul>
-                        <li><a href="#">Atari Fresh</a></li>
-                        <li><a href="#">Avoglow</a></li>
-                        <li><a href="#">All Products</a></li>
-                        <li><a href="#">Special Offers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping Info</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" required>
+                    </div>
+                    <button type="submit" class="btn-full">Access Dashboard</button>
+                </form>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-gray);">
+                    Secure admin access only
+                </p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Atari Farms Limited. Building sustainable agricultural value chains. All rights reserved.</p>
-                <p>Tagline: <em>Sexy Farming - Sustainable Innovation for Tomorrow</em></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Shopping Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <div class="cart-header">
-                <h2>Shopping Cart</h2>
-                <button class="close-btn" onclick="closeCart()" aria-label="Close Cart">&times;</button>
-            </div>
-            <div class="cart-items" id="cartItems"></div>
-            <div class="cart-summary">
-                <div class="summary-row">
-                    <span>Subtotal:</span>
-                    <span id="subtotal">UGX 0</span>
-                </div>
-                <div class="summary-row">
-                    <span>Shipping:</span>
-                    <span id="shipping">UGX 0</span>
-                </div>
-                <div class="summary-row">
-                    <span>Tax:</span>
-                    <span id="tax">UGX 0</span>
-                </div>
-                <div class="summary-row total">
-                    <span>Total:</span>
-                    <span id="total">UGX 0</span>
-                </div>
-            </div>
-            <button class="btn btn-primary btn-full" onclick="checkout()">Proceed to Checkout</button>
-            <button class="btn btn-secondary btn-full" onclick="closeCart()">Continue Shopping</button>
         </div>
     </div>
 
     <!-- Product Detail Modal -->
-    <div class="product-modal" id="productModal">
+    <div id="productDetail" class="modal product-detail-modal">
         <div class="modal-content">
-            <button class="close-btn" onclick="closeProductModal()" aria-label="Close Product Details">&times;</button>
-            <div class="modal-body">
-                <div class="modal-image">
-                    <img id="modalImage" src="" alt="Product Image">
-                    <span class="product-badge" id="modalBadge"></span>
+            <div class="product-gallery" id="detailImage">
+                <i class="fas fa-oil-can"></i>
+            </div>
+            <div class="product-details">
+                <button class="close-modal" onclick="closeModal('productDetail')" style="position: absolute; top: 1rem; right: 1rem; background: white; border-radius: 50%; width: 40px; height: 40px;">&times;</button>
+                <h2 id="detailName" style="color: var(--primary-green); margin-bottom: 0.5rem;">Product Name</h2>
+                <div id="detailRating" style="color: var(--accent-gold); margin-bottom: 1rem;">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <div class="modal-info">
-                    <h2 id="modalTitle"></h2>
-                    <div class="modal-rating">
-                        <div class="stars" id="modalRating"></div>
-                        <span id="modalReviews"></span>
+                <div id="detailPrice" style="font-size: 1.8rem; color: var(--primary-green); font-weight: 700; margin-bottom: 1.5rem;">UGX 0</div>
+                
+                <p id="detailDesc" style="color: var(--text-gray); margin-bottom: 1.5rem; line-height: 1.6;">Description</p>
+                
+                <div class="product-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" onclick="switchTab('benefits')">Benefits</button>
+                        <button class="tab-btn" onclick="switchTab('ingredients')">Ingredients</button>
+                        <button class="tab-btn" onclick="switchTab('usage')">How to Use</button>
                     </div>
-                    <div class="modal-price">
-                        <h3 id="modalPrice"></h3>
-                        <p id="modalOriginalPrice" class="original-price"></p>
+                    
+                    <div id="tab-benefits" class="tab-content active">
+                        <ul class="benefit-list" id="detailBenefits">
+                            <!-- Benefits injected via JS -->
+                        </ul>
                     </div>
-                    <p id="modalDescription" class="product-description"></p>
-                    <div class="modal-details">
-                        <h4>Key Features</h4>
-                        <ul id="modalFeatures"></ul>
+                    
+                    <div id="tab-ingredients" class="tab-content">
+                        <div class="ingredients-list" id="detailIngredients">
+                            <!-- Ingredients injected via JS -->
+                        </div>
                     </div>
-                    <div class="quantity-selector">
-                        <button onclick="decreaseQuantity()"><i class="fas fa-minus"></i></button>
-                        <input type="number" id="quantityInput" value="1" min="1" readonly>
-                        <button onclick="increaseQuantity()"><i class="fas fa-plus"></i></button>
+                    
+                    <div id="tab-usage" class="tab-content">
+                        <p id="detailUsage" style="color: var(--text-gray); line-height: 1.6;">Usage instructions</p>
                     </div>
-                    <button class="btn btn-primary btn-full" onclick="addToCart()">Add to Cart</button>
-                    <button class="btn btn-secondary btn-full" onclick="addToWishlist()">
-                        <i class="far fa-heart"></i> Save for Later
+                </div>
+
+                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                    <button class="btn-full" id="detailAddToCart" onclick="addToCartFromDetail()">Add to Cart</button>
+                    <button class="btn-small primary" style="flex: 0.5;" onclick="whatsappOrder()">
+                        <i class="fab fa-whatsapp"></i> Order
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-modal" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items injected via JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">UGX 0</span>
+            </div>
+            <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard" id="adminDashboard">
+        <div class="admin-header">
+            <div>
+                <h2 style="font-size: 1.5rem;">AVOGLOW Admin</h2>
+                <p style="opacity: 0.8; font-size: 0.9rem;">Dashboard Overview</p>
+            </div>
+            <div class="admin-nav">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Orders</a>
+                <a href="#">Products</a>
+                <a href="#">Customers</a>
+                <a href="#">Analytics</a>
+                <a href="#" onclick="logoutAdmin()">Logout</a>
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Total Sales</h3>
+                    <div class="value">UGX 45.2M</div>
+                    <small style="color: green;">↑ 12% from last month</small>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Active Orders</h3>
+                    <div class="value">24</div>
+                    <small style="color: var(--text-gray);">5 pending shipment</small>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Customers</h3>
+                    <div class="value">1,248</div>
+                    <small style="color: green;">↑ 8 new today</small>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Low Stock</h3>
+                    <div class="value">3</div>
+                    <small style="color: red;">Items need reorder</small>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h2>Recent Orders</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ORD-001</td>
+                            <td>Sarah M.</td>
+                            <td>Root & Revive, Hair Butter</td>
+                            <td>UGX 70,000</td>
+                            <td><span class="status-badge status-completed">Completed</span></td>
+                            <td>
+                                <button class="action-btn edit">Edit</button>
+                                <button class="action-btn delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-002</td>
+                            <td>David K.</td>
+                            <td>AvoChai (3x)</td>
+                            <td>UGX 36,000</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                            <td>
+                                <button class="action-btn edit">Edit</button>
+                                <button class="action-btn delete">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="admin-section">
+                <h2>Inventory Management</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Size</th>
+                            <th>Stock</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminProductTable">
+                        <!-- Populated via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float" onclick="window.open('https://wa.me/256700000000', '_blank')">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>AVOGLOW</h4>
+                <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Luxury rooted in nature. Premium avocado-based beauty and wellness products from sustainable African agriculture.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('shop')">Shop All</a></li>
+                    <li><a href="#" onclick="showPage('story')">Our Story</a></li>
+                    <li><a href="#" onclick="showPage('circularity')">Circularity</a></li>
+                    <li><a href="#" onclick="showPage('impact')">Impact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">Subscribe for exclusive offers and wellness tips.</p>
+                <form onsubmit="event.preventDefault(); alert('Subscribed!');" style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Your email" style="padding: 0.8rem; border: none; border-radius: 6px; flex: 1;">
+                    <button type="submit" style="padding: 0.8rem 1.5rem; background: var(--accent-gold); border: none; border-radius: 6px; color: white; cursor: pointer;">→</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Avoglow. All rights reserved. | Made with <i class="fas fa-heart" style="color: var(--accent-gold);"></i> in Uganda</p>
+        </div>
+    </footer>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Pure Avocado Oil",
+                category: "oil",
+                price: 10000,
+                price100ml: 20000,
+                image: "fa-oil-can",
+                rating: 5,
+                description: "Nature's nourishment in its purest form. Cold-pressed from carefully selected avocados to preserve natural nutrients.",
+                benefits: ["Deeply moisturizes dry skin and hair", "Helps improve softness and manageability", "Supports a healthy-looking scalp", "Lightweight and easily absorbed", "Suitable for both skin and hair care"],
+                ingredients: ["100% Cold-Pressed Avocado Oil"],
+                usage: "Apply a few drops to clean skin or hair. Massage until absorbed. Suitable for daily use.",
+                sizes: ["50ml", "100ml"]
+            },
+            {
+                id: 2,
+                name: "Avocado Oil with Rosemary",
+                category: "oil",
+                price: 15000,
+                price100ml: 25000,
+                image: "fa-leaf",
+                rating: 5,
+                description: "Combines cold-pressed avocado oil with rosemary to create a versatile beauty oil designed to nourish both skin and hair.",
+                benefits: ["Moisturizes and nourishes dry skin", "Helps improve skin softness and appearance", "Supports a healthy-looking scalp", "Helps soften and condition dry hair", "Lightweight and easily absorbed"],
+                ingredients: ["Cold-Pressed Avocado Oil", "Rosemary Extract"],
+                usage: "For Hair: Apply to scalp and massage gently. For Skin: Apply few drops to clean skin and massage until absorbed.",
+                sizes: ["50ml", "100ml"]
+            },
+            {
+                id: 3,
+                name: "Avocado Oil with Lavender",
+                category: "oil",
+                price: 15000,
+                price100ml: 25000,
+                image: "fa-spa",
+                rating: 5,
+                description: "Soothing blend combining cold-pressed avocado oil with lavender for gentle everyday nourishment.",
+                benefits: ["Moisturizes and nourishes skin", "Helps soften dry hair", "Supports a healthy scalp", "Gentle for daily use", "Naturally scented with lavender"],
+                ingredients: ["Cold-Pressed Avocado Oil", "Lavender Essential Oil"],
+                usage: "Apply to skin or hair as needed. Perfect for evening routines for relaxation.",
+                sizes: ["50ml", "100ml"]
+            },
+            {
+                id: 4,
+                name: "ROOT & REVIVE Triple Active Hair Elixir",
+                category: "oil",
+                price: 25000,
+                price100ml: 45000,
+                image: "fa-magic",
+                rating: 5,
+                description: "Signature hair elixir formulated with infused avocado oil, jojoba oil, castor oil, vitamin E, and essential oils.",
+                benefits: ["Nourishes the scalp", "Supports healthier-looking roots", "Helps reduce hair dryness", "Supports stronger-looking hair", "Suitable for natural and protective styles"],
+                ingredients: ["Infused Avocado Oil", "Jojoba Oil", "Castor Oil", "Vitamin E", "Rosemary Essential Oil", "Lavender Essential Oil", "Cedarwood Essential Oil", "Peppermint Essential Oil"],
+                usage: "Apply to scalp and massage gently. Use 2-3 times weekly for best results.",
+                sizes: ["50ml", "100ml"]
+            },
+            {
+                id: 5,
+                name: "INTENSIVE HAIR BUTTER",
+                category: "butter",
+                price: 25000,
+                price200g: 50000,
+                image: "fa-jar",
+                rating: 5,
+                description: "Rich blend of nourishing butters and oils designed to moisturize, soften, and protect dry, fragile hair.",
+                benefits: ["Deeply moisturizes dry hair", "Helps reduce breakage", "Supports length retention", "Improves softness and manageability", "Helps protect fragile strands"],
+                ingredients: ["Shea Butter", "Mango Butter", "Infused Avocado Oil", "Jojoba Oil", "Castor Oil", "Vitamin E", "Essential Oil Blend"],
+                usage: "Apply to damp or dry hair. Focus on ends and dry areas. Style as usual.",
+                sizes: ["100g", "200g"]
+            },
+            {
+                id: 6,
+                name: "AVOGLOW POWER DUO",
+                category: "bundle",
+                price: 50000,
+                priceLarge: 90000,
+                image: "fa-box-open",
+                rating: 5,
+                description: "Complete hair revival system combining Root & Revive with Intensive Hair Butter.",
+                benefits: ["Complete scalp and hair care routine", "Nourishes scalp while locking in moisture", "Reduces breakage", "Supports length retention", "Best value bundle"],
+                ingredients: ["Root & Revive Elixir", "Intensive Hair Butter"],
+                usage: "Use Root & Revive on scalp, follow with Hair Butter on strands.",
+                sizes: ["50ml + 100g", "100ml + 200g"]
+            },
+            {
+                id: 7,
+                name: "AVOCHAI",
+                category: "wellness",
+                price: 12000,
+                image: "fa-mug-hot",
+                rating: 5,
+                description: "Caffeine-free wellness drink crafted from avocado seeds and carefully selected spices.",
+                benefits: ["Caffeine-free", "Made from avocado seeds", "Rich, warming flavor", "Suitable for any time of day", "Crafted from natural ingredients"],
+                ingredients: ["Avocado Seeds", "Cinnamon", "Ginger", "Cloves", "Cardamom"],
+                usage: "Serve hot. Enjoy plain or with your preferred sweetener.",
+                sizes: ["100g"]
+            }
+        ];
+
+        let cart = [];
+        let currentProduct = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFeaturedProducts();
+            renderShopProducts();
+            updateCartCount();
+            populateAdminTable();
+        });
+
+        // Render Products
+        function renderFeaturedProducts() {
+            const container = document.getElementById('featuredProducts');
+            const featured = products.slice(0, 4);
+            container.innerHTML = featured.map(product => createProductCard(product)).join('');
+        }
+
+        function renderShopProducts(filter = 'all') {
+            const container = document.getElementById('shopProducts');
+            let displayProducts = products;
+            
+            if (filter !== 'all') {
+                displayProducts = products.filter(p => p.category === filter);
+            }
+            
+            container.innerHTML = displayProducts.map(product => createProductCard(product)).join('');
+            document.getElementById('productCount').textContent = `${displayProducts.length} Products`;
+        }
+
+        function createProductCard(product) {
+            const priceText = product.price100ml ? 
+                `From UGX ${product.price.toLocaleString()}` : 
+                `UGX ${product.price.toLocaleString()}`;
+            
+            return `
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas ${product.image}"></i>
+                        ${product.category === 'bundle' ? '<span class="product-badge">Best Value</span>' : ''}
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-price">${priceText}</div>
+                        <div class="product-rating">
+                            ${'<i class="fas fa-star"></i>'.repeat(product.rating)}
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-small" onclick="openProductDetail(${product.id})">Quick View</button>
+                            <button class="btn-small primary" onclick="addToCart(${product.id})">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openProductDetail(productId) {
+            currentProduct = products.find(p => p.id === productId);
+            if (!currentProduct) return;
+
+            document.getElementById('detailName').textContent = currentProduct.name;
+            document.getElementById('detailPrice').textContent = `From UGX ${currentProduct.price.toLocaleString()}`;
+            document.getElementById('detailDesc').textContent = currentProduct.description;
+            document.getElementById('detailImage').innerHTML = `<i class="fas ${currentProduct.image}" style="font-size: 6rem;"></i>`;
+            
+            // Benefits
+            document.getElementById('detailBenefits').innerHTML = currentProduct.benefits.map(b => `<li>${b}</li>`).join('');
+            
+            // Ingredients
+            document.getElementById('detailIngredients').innerHTML = currentProduct.ingredients.map(i => `<span class="ingredient-tag">${i}</span>`).join('');
+            
+            // Usage
+            document.getElementById('detailUsage').textContent = currentProduct.usage;
+
+            openModal('productDetail');
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Cart Functions
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            
+            updateCartCount();
+            renderCart();
+            
+            // Show feedback
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Added!';
+            btn.style.background = '#4A7C59';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+            }, 1000);
+        }
+
+        function addToCartFromDetail() {
+            if (currentProduct) {
+                addToCart(currentProduct.id);
+                closeModal('productDetail');
+            }
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            renderCart();
+            updateCartCount();
+        }
+
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    renderCart();
+                    updateCartCount();
+                }
+            }
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: var(--text-gray); padding: 2rem;">Your cart is empty</p>';
+                document.getElementById('cartTotal').textContent = 'UGX 0';
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <i class="fas ${item.image}"></i>
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">UGX ${item.price.toLocaleString()}</div>
+                        <div class="quantity-control">
+                            <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-trash remove-item" onclick="removeFromCart(${item.id})"></i>
+                </div>
+            `).join('');
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('cartTotal').textContent = `UGX ${total.toLocaleString()}`;
+        }
+
+        function toggleCart() {
+            document.getElementById('cartSidebar').classList.toggle('active');
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            openModal('customerLogin');
+            toggleCart();
+        }
+
+        // Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+            
+            if (pageId === 'shop') {
+                renderShopProducts();
+            }
+        }
+
+        // Auth Handlers
+        function handleCustomerLogin(e) {
+            e.preventDefault();
+            closeModal('customerLogin');
+            alert('Welcome back! You are now logged in.');
+            // Update UI to show logged in state
+            document.querySelector('.fa-user').classList.remove('fa-user');
+            document.querySelector('.fa-user').classList.add('fa-user-check');
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            closeModal('adminLogin');
+            document.getElementById('adminDashboard').classList.add('active');
+        }
+
+        function logoutAdmin() {
+            document.getElementById('adminDashboard').classList.remove('active');
+        }
+
+        function showSignup() {
+            alert('Sign up functionality would open here');
+        }
+
+        // Filters
+        function filterProducts() {
+            const checkboxes = document.querySelectorAll('.filters input[type="checkbox"]:checked');
+            if (checkboxes.length === 0) {
+                renderShopProducts();
+                return;
+            }
+            
+            const categories = Array.from(checkboxes).map(cb => cb.value);
+            const filtered = products.filter(p => categories.includes(p.category));
+            
+            const container = document.getElementById('shopProducts');
+            container.innerHTML = filtered.map(product => createProductCard(product)).join('');
+            document.getElementById('productCount').textContent = `${filtered.length} Products`;
+        }
+
+        function sortProducts(sortType) {
+            let sorted = [...products];
+            if (sortType === 'price-low') {
+                sorted.sort((a, b) => a.price - b.price);
+            } else if (sortType === 'price-high') {
+                sorted.sort((a, b) => b.price - a.price);
+            }
+            
+            const container = document.getElementById('shopProducts');
+            container.innerHTML = sorted.map(product => createProductCard(product)).join('');
+        }
+
+        // Admin Table
+        function populateAdminTable() {
+            const tbody = document.getElementById('adminProductTable');
+            tbody.innerHTML = products.map(p => `
+                <tr>
+                    <td>${p.name}</td>
+                    <td>${p.sizes ? p.sizes.join(', ') : '100g'}</td>
+                    <td>${Math.floor(Math.random() * 50) + 10}</td>
+                    <td>UGX ${p.price.toLocaleString()}</td>
+                    <td>
+                        <button class="action-btn edit">Edit</button>
+                        <button class="action-btn delete">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Utilities
+        function whatsappOrder() {
+            if (currentProduct) {
+                const message = `Hello, I'm interested in ordering ${currentProduct.name}`;
+                window.open(`https://wa.me/256700000000?text=${encodeURIComponent(message)}`, '_blank');
+            }
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('filters').classList.toggle('active');
+        }
+
+        // Close modals on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
 </body>
 </html>
